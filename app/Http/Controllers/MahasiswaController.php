@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Mahasiswa;
 use App\Http\Requests\StoreMahasiswaRequest;
 use App\Http\Requests\UpdateMahasiswaRequest;
+use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
 {
@@ -26,7 +27,8 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        //
+        $model = new Mahasiswa;
+        return view('create', compact('model'));
     }
 
     /**
@@ -35,9 +37,14 @@ class MahasiswaController extends Controller
      * @param  \App\Http\Requests\StoreMahasiswaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMahasiswaRequest $request)
+    public function store(Request $request)
     {
-        //
+        $mahasiswa = new Mahasiswa;
+        $mahasiswa->nama_mahasiswa = $request->nama_mahasiswa;
+        $mahasiswa->nim = $request->nim;
+        $mahasiswa->prodi = $request->prodi;
+        $mahasiswa->save();
+        redirect('/');
     }
 
     /**

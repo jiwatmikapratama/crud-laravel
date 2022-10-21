@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MahasiswaController;
+use App\Models\Mahasiswa;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,5 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [MahasiswaController::class, 'index']);
+Route::get('/create', [MahasiswaController::class, 'create']);
+Route::post('/store', [MahasiswaController::class, 'store']);
