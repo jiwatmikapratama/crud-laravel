@@ -17,6 +17,7 @@ class MahasiswaSeeder extends Seeder
     {
         Mahasiswa::create([
             'nama_mahasiswa' => 'I Putu Pratama Putra Jiwatmika',
+            'nim' => '2015051016',
             'prodi' => 'S1 Pendidikan Teknik Informatika',
         ]);
     }
