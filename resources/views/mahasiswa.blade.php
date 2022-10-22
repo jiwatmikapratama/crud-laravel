@@ -21,7 +21,7 @@
                     <td>{{ $value->prodi }}</td>
                     <td>
                         <a href="" class="btn btn-danger">Hapus</a>
-                        <a href="" class="btn btn-warning">Ubah</a>
+                        <a href="{{ url('/edit' . '/' . $value->id) }}" class="btn btn-warning">Ubah</a>
                     </td>
                 </tr>
             @endforeach

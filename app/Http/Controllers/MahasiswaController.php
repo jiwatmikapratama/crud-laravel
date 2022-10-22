@@ -44,7 +44,7 @@ class MahasiswaController extends Controller
         $mahasiswa->nim = $request->nim;
         $mahasiswa->prodi = $request->prodi;
         $mahasiswa->save();
-        redirect('/');
+        return redirect('/');
     }
 
     /**
@@ -64,9 +64,10 @@ class MahasiswaController extends Controller
      * @param  \App\Models\Mahasiswa  $mahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mahasiswa $mahasiswa)
+    public function edit($id)
     {
-        //
+        $model = Mahasiswa::find($id);
+        return view('edit', compact('model'));
     }
 
     /**
@@ -76,9 +77,14 @@ class MahasiswaController extends Controller
      * @param  \App\Models\Mahasiswa  $mahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMahasiswaRequest $request, Mahasiswa $mahasiswa)
+    public function update(Request $request, $id)
     {
-        //
+        $model = Mahasiswa::find($id);
+        $model->nama_mahasiswa = $request->nama_mahasiswa;
+        $model->nim = $request->nim;
+        $model->prodi = $request->prodi;
+        $model->save();
+        return redirect('/');
     }
 
     /**
@@ -89,6 +95,6 @@ class MahasiswaController extends Controller
      */
     public function destroy(Mahasiswa $mahasiswa)
     {
-        //
+        
     }
 }
