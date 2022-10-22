@@ -20,7 +20,11 @@
                     <td>{{ $value->nim }}</td>
                     <td>{{ $value->prodi }}</td>
                     <td>
-                        <a href="" class="btn btn-danger">Hapus</a>
+                        <form action="{{ url('/delete' . '/' . $value->id) }}" method="POST">
+                            @csrf
+                            <a href="{{ url('/delete' . '/' . $value->id) }}" class="btn btn-danger">Hapus</a>
+                        </form>
+
                         <a href="{{ url('/edit' . '/' . $value->id) }}" class="btn btn-warning">Ubah</a>
                     </td>
                 </tr>
